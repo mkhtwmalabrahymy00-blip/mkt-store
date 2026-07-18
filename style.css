@@ -1,0 +1,273 @@
+/* =========================================================
+   MKT Store — Brand System
+   الحبر الأسود، البنفسجي الملكي، الجاموني، الذهبي، الأبيض
+   فكرة التصميم: "ختم السوق" — كل منتج يحمل ختماً كالأختام
+   التي تُستخدم في أسواق نيالة والجمارك المحلية.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+
+:root{
+  --ink:        #17101F;   /* أسود بنفسجي عميق */
+  --royal:      #5B2A86;   /* بنفسجي ملكي */
+  --amethyst:   #8E4FC7;   /* بنفسجي فاتح */
+  --gold:       #C7962E;   /* ذهبي الختم */
+  --white:      #FFFFFF;
+  --mist:       #F6F2F9;   /* خلفية فاتحة بنفسجية شاحبة جداً */
+  --line:       #E4D9EE;
+
+  --radius-card: 18px;
+  --radius-pill: 999px;
+  --shadow-card: 0 6px 20px rgba(23,16,31,0.10);
+  --shadow-pop:  0 14px 34px rgba(23,16,31,0.22);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:'Tajawal', sans-serif;
+  background:var(--mist);
+  color:var(--ink);
+  direction:rtl;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+button{ font-family:inherit; cursor:pointer; border:none; }
+a{ color:inherit; text-decoration:none; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+}
+
+/* ---------- Top bar ---------- */
+.topbar{
+  position:sticky; top:0; z-index:40;
+  background:var(--ink);
+  color:var(--white);
+  padding:14px 16px;
+  display:flex; align-items:center; justify-content:space-between;
+  box-shadow:0 2px 12px rgba(0,0,0,0.18);
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+}
+.brand .stamp-mini{
+  width:34px; height:34px; border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900; color:var(--gold); font-size:14px;
+  transform:rotate(-8deg);
+}
+.brand .name{ font-weight:900; font-size:18px; letter-spacing:0.5px; }
+.brand .name span{ color:var(--amethyst); }
+
+.cart-btn{
+  position:relative;
+  background:var(--royal);
+  color:var(--white);
+  width:42px; height:42px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px;
+}
+.cart-count{
+  position:absolute; top:-4px; left:-4px;
+  background:var(--gold); color:var(--ink);
+  font-size:11px; font-weight:900;
+  min-width:18px; height:18px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* ---------- Category chips ---------- */
+.cats{
+  display:flex; gap:8px; overflow-x:auto;
+  padding:14px 16px; background:var(--white);
+  border-bottom:1px solid var(--line);
+  -ms-overflow-style:none; scrollbar-width:none;
+}
+.cats::-webkit-scrollbar{ display:none; }
+.chip{
+  flex:0 0 auto;
+  padding:8px 16px;
+  border-radius:var(--radius-pill);
+  background:var(--mist);
+  border:1px solid var(--line);
+  font-size:13px; font-weight:700;
+  color:var(--royal);
+  white-space:nowrap;
+}
+.chip.active{ background:var(--royal); color:var(--white); border-color:var(--royal); }
+
+/* ---------- Hero strip ---------- */
+.hero{
+  margin:16px; padding:20px;
+  border-radius:22px;
+  background:linear-gradient(135deg, var(--royal), var(--ink));
+  color:var(--white);
+  position:relative; overflow:hidden;
+}
+.hero h1{ margin:0 0 6px; font-size:20px; font-weight:900; }
+.hero p{ margin:0; font-size:13px; opacity:0.85; }
+.hero .stamp-big{
+  position:absolute; left:-10px; bottom:-18px;
+  width:90px; height:90px; border-radius:50%;
+  border:3px dashed var(--gold);
+  opacity:0.5; transform:rotate(12deg);
+}
+
+/* ---------- Product grid ---------- */
+.grid{
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:14px; padding:6px 16px 90px;
+}
+.card{
+  background:var(--white);
+  border-radius:var(--radius-card);
+  box-shadow:var(--shadow-card);
+  overflow:hidden;
+  position:relative;
+}
+.card .thumb{
+  width:100%; aspect-ratio:1/1; object-fit:cover;
+  background:var(--mist);
+}
+.card .badge{
+  position:absolute; top:8px; right:8px;
+  width:46px; height:46px; border-radius:50%;
+  border:2px solid var(--gold);
+  background:rgba(23,16,31,0.85);
+  color:var(--gold);
+  font-size:10px; font-weight:900;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; line-height:1.1;
+  transform:rotate(-10deg);
+}
+.card .body{ padding:10px 12px 12px; }
+.card .title{ font-size:14px; font-weight:700; margin:0 0 4px; line-height:1.35; }
+.card .price{ font-size:15px; font-weight:900; color:var(--royal); }
+.card .price span{ font-size:11px; font-weight:500; color:var(--ink); opacity:0.6; }
+.card .add-btn{
+  margin-top:8px; width:100%;
+  background:var(--ink); color:var(--white);
+  border-radius:var(--radius-pill);
+  padding:8px 0; font-size:13px; font-weight:700;
+}
+.card .add-btn:active{ background:var(--royal); }
+
+.empty-state{
+  grid-column:1/-1; text-align:center; padding:60px 20px; color:#8a7d95;
+}
+
+/* ---------- Product modal ---------- */
+.overlay{
+  position:fixed; inset:0; background:rgba(23,16,31,0.55);
+  display:none; align-items:flex-end; z-index:50;
+}
+.overlay.open{ display:flex; }
+.sheet{
+  background:var(--white); width:100%;
+  border-radius:24px 24px 0 0;
+  max-height:88vh; overflow-y:auto;
+  box-shadow:var(--shadow-pop);
+  animation:slideUp 0.28s ease-out;
+}
+@keyframes slideUp{ from{ transform:translateY(24px); opacity:0; } to{ transform:translateY(0); opacity:1; } }
+.sheet .handle{ width:40px; height:4px; background:var(--line); border-radius:4px; margin:10px auto; }
+.sheet img.hero-img{ width:100%; max-height:280px; object-fit:cover; }
+.sheet .content{ padding:16px 18px 24px; }
+.sheet h2{ margin:0 0 8px; font-size:19px; }
+.sheet .price-row{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.sheet .price-row .price{ font-size:20px; font-weight:900; color:var(--royal); }
+.sheet p.desc{ font-size:14px; line-height:1.7; color:#3a2e46; }
+.qty-row{ display:flex; align-items:center; gap:12px; margin:16px 0; }
+.qty-row button{
+  width:36px; height:36px; border-radius:50%; background:var(--mist);
+  border:1px solid var(--line); font-size:18px; font-weight:900; color:var(--royal);
+}
+.qty-row .qty-val{ font-size:16px; font-weight:700; min-width:24px; text-align:center; }
+.sheet .cta{
+  width:100%; background:var(--royal); color:var(--white);
+  padding:14px 0; border-radius:var(--radius-pill); font-weight:900; font-size:15px;
+}
+.close-x{
+  position:absolute; top:14px; left:14px;
+  width:32px; height:32px; border-radius:50%;
+  background:rgba(23,16,31,0.6); color:var(--white); font-size:16px;
+  display:flex; align-items:center; justify-content:center; z-index:2;
+}
+
+/* ---------- Cart drawer ---------- */
+.cart-items{ padding:0 18px; }
+.cart-line{ display:flex; gap:10px; align-items:center; padding:10px 0; border-bottom:1px solid var(--line); }
+.cart-line img{ width:52px; height:52px; border-radius:12px; object-fit:cover; }
+.cart-line .info{ flex:1; }
+.cart-line .info .t{ font-size:13px; font-weight:700; }
+.cart-line .info .p{ font-size:12px; color:var(--royal); font-weight:700; }
+.cart-line .remove{ color:#b23; font-size:12px; }
+.cart-total{ display:flex; justify-content:space-between; padding:14px 0; font-weight:900; font-size:16px; }
+
+/* ---------- Floating WhatsApp ---------- */
+.wa-float{
+  position:fixed; bottom:18px; left:18px; z-index:45;
+  width:54px; height:54px; border-radius:50%;
+  background:#25D366; color:var(--white);
+  display:flex; align-items:center; justify-content:center;
+  font-size:26px; box-shadow:var(--shadow-pop);
+}
+
+/* ---------- Admin ---------- */
+.admin-body{ direction:rtl; }
+.admin-wrap{ max-width:520px; margin:0 auto; padding:16px 16px 60px; }
+.admin-card{
+  background:var(--white); border-radius:18px; padding:18px;
+  box-shadow:var(--shadow-card); margin-bottom:16px;
+}
+.field{ margin-bottom:12px; }
+.field label{ display:block; font-size:13px; font-weight:700; margin-bottom:6px; color:var(--ink); }
+.field input, .field textarea, .field select{
+  width:100%; padding:11px 12px; border-radius:12px;
+  border:1px solid var(--line); font-family:inherit; font-size:14px;
+  background:var(--mist);
+}
+.field textarea{ min-height:80px; resize:vertical; }
+.btn-primary{
+  width:100%; background:var(--royal); color:var(--white);
+  padding:13px 0; border-radius:var(--radius-pill); font-weight:900; font-size:14px;
+}
+.btn-danger{ background:#8a2b2b; color:var(--white); padding:8px 14px; border-radius:var(--radius-pill); font-size:12px; font-weight:700; }
+.btn-outline{ background:transparent; color:var(--royal); border:1px solid var(--royal); padding:8px 14px; border-radius:var(--radius-pill); font-size:12px; font-weight:700; }
+.admin-header{
+  background:var(--ink); color:var(--white); padding:16px;
+  display:flex; align-items:center; justify-content:space-between;
+  position:sticky; top:0; z-index:10;
+}
+.product-row{
+  display:flex; gap:10px; align-items:center;
+  padding:10px 0; border-bottom:1px solid var(--line);
+}
+.product-row img{ width:50px; height:50px; border-radius:10px; object-fit:cover; background:var(--mist); }
+.product-row .info{ flex:1; }
+.product-row .info .t{ font-size:13px; font-weight:700; }
+.product-row .info .p{ font-size:12px; color:var(--royal); }
+.product-row .actions{ display:flex; gap:6px; }
+.toast{
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+  background:var(--ink); color:var(--white); padding:10px 20px;
+  border-radius:var(--radius-pill); font-size:13px; z-index:99;
+  opacity:0; pointer-events:none; transition:opacity 0.25s;
+}
+.toast.show{ opacity:1; }
+.login-wrap{
+  min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px;
+}
+.login-box{
+  background:var(--white); border-radius:20px; padding:28px 24px;
+  box-shadow:var(--shadow-pop); width:100%; max-width:340px; text-align:center;
+}
+.login-box .stamp-mini{
+  width:56px; height:56px; margin:0 auto 14px; border-radius:50%;
+  border:2px solid var(--gold); color:var(--gold);
+  display:flex; align-items:center; justify-content:center; font-weight:900;
+  transform:rotate(-8deg);
+}
+.hidden{ display:none !important; }

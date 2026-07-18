@@ -1,0 +1,16 @@
+{
+  "name": "MKT Store",
+  "short_name": "MKT Store",
+  "description": "سوق نيالة الإلكتروني — تسوّق واطلب عبر واتساب",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#17101F",
+  "theme_color": "#17101F",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

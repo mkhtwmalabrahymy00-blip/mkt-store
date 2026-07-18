@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>MKT Store — سوق نيالة الإلكتروني</title>
+<meta name="description" content="MKT Store — تسوق منتجاتك المفضلة في نيالة واطلب عبر واتساب مباشرة">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#17101F">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="stamp-mini">MKT</div>
+    <div class="name">MKT <span>Store</span></div>
+  </div>
+  <button class="cart-btn" id="cartBtn">
+    🛒
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+</header>
+
+<div class="hero">
+  <div class="stamp-big"></div>
+  <h1>سوق نيالة، بين يديك</h1>
+  <p>تصفّح، اختر، واطلب مباشرة عبر واتساب — توصيل داخل نيالة</p>
+</div>
+
+<div class="cats" id="cats"></div>
+
+<div class="grid" id="grid">
+  <div class="empty-state">جاري تحميل المنتجات...</div>
+</div>
+
+<!-- بطاقة المنتج -->
+<div class="overlay" id="productOverlay" data-close-overlay>
+  <div class="sheet">
+    <button class="close-x" data-close-overlay onclick="document.getElementById('productOverlay').classList.remove('open')">✕</button>
+    <div class="handle"></div>
+    <img class="hero-img" id="sheetImg" src="" alt="">
+    <div class="content">
+      <h2 id="sheetTitle"></h2>
+      <div class="price-row"><span class="price" id="sheetPrice"></span></div>
+      <p class="desc" id="sheetDesc"></p>
+      <div class="qty-row">
+        <button id="qtyMinus">−</button>
+        <span class="qty-val" id="qtyVal">1</span>
+        <button id="qtyPlus">+</button>
+      </div>
+      <button class="cta" id="sheetAddBtn">أضف للسلة</button>
+    </div>
+  </div>
+</div>
+
+<!-- سلة المشتريات -->
+<div class="overlay" id="cartOverlay" data-close-overlay>
+  <div class="sheet">
+    <button class="close-x" onclick="document.getElementById('cartOverlay').classList.remove('open')">✕</button>
+    <div class="handle"></div>
+    <div class="content">
+      <h2>سلتك</h2>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-total">
+        <span>الإجمالي</span>
+        <span id="cartTotalVal">0 ج.س</span>
+      </div>
+      <button class="cta" id="checkoutBtn">إتمام الطلب عبر واتساب</button>
+    </div>
+  </div>
+</div>
+
+<a class="wa-float" href="https://wa.me/218934535076" target="_blank" aria-label="تواصل عبر واتساب">💬</a>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
