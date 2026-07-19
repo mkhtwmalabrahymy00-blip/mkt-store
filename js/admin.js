@@ -37,7 +37,7 @@ let editingId = null;
 
 document.getElementById("openAddFormBtn").addEventListener("click", ()=>{
   editingId = null;
-  form.reset();
+  clearForm();
   formTitle.textContent = "إضافة منتج جديد";
   document.getElementById("formPanel").classList.remove("hidden");
   window.scrollTo({top:0, behavior:"smooth"});
