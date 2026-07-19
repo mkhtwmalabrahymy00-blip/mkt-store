@@ -5,12 +5,12 @@
 // =========================================================
 
 const firebaseConfig = {
-  apiKey: "ضع_مفتاحك_هنا",
-  authDomain: "ضع_قيمتك_هنا",
-  projectId: "ضع_قيمتك_هنا",
-  storageBucket: "ضع_قيمتك_هنا",
-  messagingSenderId: "ضع_قيمتك_هنا",
-  appId: "ضع_قيمتك_هنا"
+  apiKey: "AIzaSyBLOb4gHyVmvllho7ATPIH3IYVPfI3rKxI",
+authDomain: "mkt-store-10ee6.firebaseapp.com",
+projectId: "mkt-store-10ee6",
+storageBucket: "mkt-store-10ee6.firebasestorage.app",
+messagingSenderId: "747456857260",
+appId: "1:747456857260:web:2c2d72f0dbb9802ccf8b09"
 };
 
 firebase.initializeApp(firebaseConfig);
